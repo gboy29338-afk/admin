@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body style="text-align:center; font-family:Arial; background:black; color:white;">
+
+<h2>🔐 Admin Panel</h2>
+
+<input type="password" id="pass" placeholder="Enter Password"><br><br>
+
+<textarea id="team" placeholder="Enter Today Team" rows="5" cols="30"></textarea><br><br>
+
+<button onclick="save()">Save Team</button>
+
+<p id="msg"></p>
+
+<script>
+function save() {
+  let password = document.getElementById("pass").value;
+
+  if(password !== "1234") {
+    document.getElementById("msg").innerHTML = "❌ Wrong Password";
+    return;
+  }
+
+  let team = document.getElementById("team").value;
+  localStorage.setItem("todayTeam", team);
+
+  document.getElementById("msg").innerHTML = "✅ Team Updated!";
+}
+</script>
+
+</body>
+</html>
